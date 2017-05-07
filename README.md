@@ -9,7 +9,7 @@ npm i -g obj2sc
 
 # Usage
 
-sh```
+```
 obj2sc < mymesh.obj > mymesh.json
 ```
 
