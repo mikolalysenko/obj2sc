@@ -1,0 +1,32 @@
+{
+  "name": "convert-obj",
+  "version": "1.0.0",
+  "description": "Command line tool to convert OBJ format meshes to JSON formatted simplicial complexes",
+  "main": "obj2sc.js",
+  "bin": {
+    "obj2sc": "obj2sc.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikolalysenko/obj2sc.git"
+  },
+  "keywords": [
+    "obj",
+    "parse",
+    "simplicial",
+    "complex",
+    "cells",
+    "triangles",
+    "mesh",
+    "3d"
+  ],
+  "author": "Mikola Lysenko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mikolalysenko/obj2sc/issues"
+  },
+  "homepage": "https://github.com/mikolalysenko/obj2sc#readme"
+}
