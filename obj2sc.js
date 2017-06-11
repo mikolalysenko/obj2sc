@@ -35,7 +35,12 @@ process.stdin
           if (vtn[1]) t.push(vt[(vtn[1]-1)|0]) // texture index
           if (vtn[2]) n.push(vn[(vtn[2]-1)|0]) // normal index
         }
-        faces.push(f)
+        if (f.length === 3) faces.push(f)
+        else {
+          for (var i = 2; i < f.length; i++) {
+            faces.push([f[0],f[i-1],f[i]])
+          }
+        }
         if (t.length > 0) uv.push(t)
         if (n.length > 0) normals.push(n)
       }
