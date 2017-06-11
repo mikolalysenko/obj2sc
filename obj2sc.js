@@ -4,9 +4,11 @@ var str = []
 process.stdin
   .setEncoding('utf-8')
   .on('readable', function () {
-    var chunk = process.stdin.read()
-    if (chunk) {
-      str.push(chunk)
+    var chunk
+    while (chunk = process.stdin.read()) {
+      if (chunk) {
+        str.push(chunk)
+      }
     }
   })
   .on('end', function () {
