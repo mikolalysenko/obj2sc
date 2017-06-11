@@ -38,7 +38,6 @@ process.stdin
         faces.push(f)
         if (t.length > 0) uv.push(t)
         if (n.length > 0) normals.push(n)
-        faces.push(toks.slice(1).map((x) => (x - 1) | 0))
       }
     })
 
