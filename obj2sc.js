@@ -28,12 +28,13 @@ process.stdin
       } else if (toks[0] === 'vn') {
         vn.push(toks.slice(1).map((x) => +x))
       } else if (toks[0] === 'f') {
-        var f = [], t = [], n = []
+        var f = []
         for (var i = 1; i < toks.length; i++) {
           var vtn = toks[i].split('/')
-          f.push((vtn[0] - 1) | 0)
-          if (vtn[1]) t.push(vt[(vtn[1]-1)|0]) // texture index
-          if (vtn[2]) n.push(vn[(vtn[2]-1)|0]) // normal index
+          var vi = (vtn[0]-1)|0
+          f.push(vi)
+          if (vtn[1]) uv[vi] = vt[(vtn[1]-1)|0] // texture index
+          if (vtn[2]) normals[vi] = vn[(vtn[2]-1)|0] // normal index
         }
         if (f.length === 3) faces.push(f)
         else {
@@ -41,8 +42,6 @@ process.stdin
             faces.push([f[0],f[i-1],f[i]])
           }
         }
-        if (t.length > 0) uv.push(t)
-        if (n.length > 0) normals.push(n)
       }
     })
 
