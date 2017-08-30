@@ -1,5 +1,5 @@
 {
-  "name": "convert-obj",
+  "name": "obj2sc",
   "version": "1.0.0",
   "description": "Command line tool to convert OBJ format meshes to JSON formatted simplicial complexes",
   "main": "obj2sc.js",
