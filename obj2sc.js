@@ -18,6 +18,7 @@ process.stdin
     var faces = []
     var uv = []
     var normals = []
+    var positions = []
 
     str.join('').split('\n').forEach(function (line) {
       var toks = line.split(/\s+/)
@@ -32,9 +33,11 @@ process.stdin
         for (var i = 1; i < toks.length; i++) {
           var vtn = toks[i].split('/')
           var vi = (vtn[0]-1)|0
-          f.push(vi)
-          if (vtn[1]) uv[vi] = vt[(vtn[1]-1)|0] // texture index
-          if (vtn[2]) normals[vi] = vn[(vtn[2]-1)|0] // normal index
+          var pi = positions.length
+          positions.push(verts[vi])
+          f.push(pi)
+          if (vtn[1]) uv[pi] = vt[(vtn[1]-1)|0] // texture index
+          if (vtn[2]) normals[pi] = vn[(vtn[2]-1)|0] // normal index
         }
         if (f.length === 3) faces.push(f)
         else {
@@ -46,7 +49,7 @@ process.stdin
     })
 
     var data = {
-      positions: verts,
+      positions: positions,
       cells: faces
     }
     if (uv.length) {
